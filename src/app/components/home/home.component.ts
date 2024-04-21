@@ -151,7 +151,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1);
       setTimeout(() => {
         this.delayedReady = true;
-      }, 1000);
+      }, 800);
     })
 
   }
