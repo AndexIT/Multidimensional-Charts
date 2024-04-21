@@ -2,7 +2,7 @@
 
 This project is an Angular application that showcases the integration of [D3.js](https://d3js.org/), [DC.js](https://dc-js.github.io/dc.js/), and [Crossfilter.js](http://square.github.io/crossfilter/) to create interactive charts with cross-filtering capabilities. The project uses a dataset with `147,150 records` in the financial domain, allowing for advanced data visualization and analytics.
 
-## Data Structure
+## Demo
 
 Live Demo [here](https://andexit.github.io/Multidimensional-Charts)
 
