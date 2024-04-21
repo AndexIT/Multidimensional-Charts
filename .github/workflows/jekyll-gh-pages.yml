@@ -26,7 +26,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  
+          node-version: '18'
 
       # Install Angular CLI and project dependencies
       - name: Install dependencies
@@ -34,7 +34,7 @@ jobs:
 
       # Build the Angular project (ensure output path is set to 'dist')
       - name: Build Angular project
-        run: npm run build
+        run: npm run build --configuration=production
 
       # Upload build artifacts to GitHub Pages
       - name: Upload artifact

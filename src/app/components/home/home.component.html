@@ -2,7 +2,7 @@
   <span class="loader"></span>
 </div>
 <div *ngIf="!delayedReady" style="position: absolute;" [ngStyle]="{'top': '50%', 'left': 'calc(50% - 4em)'}">
-  <img src="../../../assets/icons/charts-logo.png" alt="logo-loader" style="transform: scale(.3) translate(3.6em, 6em); transform-origin: left top;">
+  <img src="./assets/icons/charts-logo.png" alt="logo-loader" style="transform: scale(.3) translate(3.6em, 6em); transform-origin: left top;">
 </div>
 
 <div *ngIf="ready" [ngStyle]="{'visibility': delayedReady ? 'visible' : 'hidden'}" fxLayout="row" fxLayoutAlign="center center" fxFlex="100" >

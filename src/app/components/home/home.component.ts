@@ -197,7 +197,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           });
         });
 
-        this.csvParser.parse("../../../assets/Price_table.csv", options2);
+        this.csvParser.parse("./assets/Price_table.csv", options2);
       }
     };
 
@@ -223,7 +223,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.processLargeArray(this.cv.jsonData, map, result)
       }
     }
-    this.csvParser.parse("../../../assets/dataset_S2E.csv", options1);
+    this.csvParser.parse("./assets/dataset_S2E.csv", options1);
   }
 
   findObj(el: any, resultCsv: any[]){
