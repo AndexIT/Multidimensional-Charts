@@ -1,0 +1,258 @@
+<div *ngIf="!delayedReady" style="position: absolute;" [ngStyle]="{'top': '50%', 'left': 'calc(50% - 4em)'}">
+  <span class="loader"></span>
+</div>
+<div *ngIf="!delayedReady" style="position: absolute;" [ngStyle]="{'top': '50%', 'left': 'calc(50% - 4em)'}">
+  <img src="../../../assets/icons/charts-logo.png" alt="logo-loader" style="transform: scale(.3) translate(3.6em, 6em); transform-origin: left top;">
+</div>
+
+<div *ngIf="ready" [ngStyle]="{'visibility': delayedReady ? 'visible' : 'hidden'}" fxLayout="row" fxLayoutAlign="center center" fxFlex="100" >
+  <mat-card fxFlex="98">
+    <div class="title" fxLayout="row" fxLayoutAlign="start center" style="margin-bottom: 1em;">
+      <mat-icon color="accent">analytics</mat-icon> Indici di riferimento
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+
+      <div id="table-info-ratio" class="mat-elevation-z2" fxLayout="column">
+        <table #table
+          [dataSource]="cv.info_ratio_datasource"
+          mat-table
+          #sort="matSort"
+          matSort
+          matSortDisableClear="true"
+          matSortActive="' '"
+          matSortDirection="asc"
+        >
+
+          <ng-container matColumnDef="year">
+            <th mat-sort-header mat-header-cell *matHeaderCellDef> Anno </th>
+            <td mat-cell *matCellDef="let row"> {{ row.year }} </td>
+          </ng-container>
+
+          <ng-container style="margin-left: 10em;" matColumnDef="infoRatio">
+            <th mat-sort-header mat-header-cell *matHeaderCellDef> Information Ratio </th>
+            <td mat-cell *matCellDef="let row"> {{ row.infoRatio/100 | percent: "1.2-2" }} </td>
+          </ng-container>
+
+          <ng-container style="margin-left: 10em;" matColumnDef="beta">
+            <th mat-sort-header mat-header-cell *matHeaderCellDef> Beta </th>
+            <td mat-cell *matCellDef="let row"> {{ row.beta | number: "1.2-2"}}% </td>
+          </ng-container>
+
+          <ng-container style="margin-left: 10em;" matColumnDef="jAlpha">
+            <th mat-sort-header mat-header-cell *matHeaderCellDef> Jensen Alpha </th>
+            <td mat-cell *matCellDef="let row"> {{ row.jAlpha | number: "1.2-2"}}% </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="['year','infoRatio', 'beta', 'jAlpha']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['year','infoRatio', 'beta', 'jAlpha'];"></tr>
+
+        </table>
+
+        <mat-paginator #paginator [pageSizeOptions]="[2, 5]" ></mat-paginator>
+      </div>
+
+      <div id="table-info-ratio" class="mat-elevation-z2">
+        <table mat-table #table [dataSource]="cv.MDD_datasource">
+
+          <ng-container matColumnDef="maxDD">
+            <th mat-header-cell *matHeaderCellDef> Max Drawdown </th>
+            <td mat-cell *matCellDef="let row"> {{ row.maxDD | number: "1.2-2" }}% </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="['maxDD']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['maxDD'];"></tr>
+
+        </table>
+      </div>
+    </div>
+
+    <mat-divider style="margin-top: 1em;"></mat-divider>
+
+    <div fxLayout="column" fxLayoutAlign="center"  style="margin-top: 2em;">
+
+      <div style="text-align: center">
+        <p>Seleziona uno dei seguenti filtri da applicare a tutti i grafici</p>
+      </div>
+
+      <div fxLayout="row wrap" fxLayoutAlign="center center">
+        <div class="mat-elevation-z1" fxLayout="row wrap" fxLayoutAlign="center center" style="background-color: #cdcdcdc2; border-radius: 10px;">
+          <button mat-button color="accent" (click)="crossfilter.settaFocus('1m')">1M</button>
+          <button mat-button color="accent" (click)="crossfilter.settaFocus('3m')">3M</button>
+          <button mat-button color="accent" (click)="crossfilter.settaFocus('ytd')">YTD</button>
+          <button mat-button color="accent" (click)="crossfilter.settaFocus('1a')">1A</button>
+          <button mat-button color="accent" (click)="crossfilter.settaFocus('3a')">3A</button>
+          <button mat-button color="accent" (click)="crossfilter.settaFocus('5a')">5A</button>
+          <button mat-button color="accent" (click)="crossfilter.settaFocus('dec')" matTooltip="Decorrenza">DEC</button>
+          <button mat-button color="accent" (click)="crossfilter.resettaGrafici()">Reset</button>
+        </div>
+      </div>
+
+    </div>
+    <!-- RANGE CHART -->
+    <div id="range-target">
+      <div id="range-tooltip" class="new-tooltip" style="display: none;">
+        <div fxLayout="column" fxLayoutAlign="start start">
+          <strong><div>{{cv.rangeTooltipDate | date: 'd/M/YYYY'}}</div></strong>
+          <div> Rendimento: <strong>{{cv.rangeTooltipValue | number: "1.2-2"}}%</strong></div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap.gt-sm="0.5rem">
+        <div>
+          <mat-icon  class="icon d-none" color="accent">date_range</mat-icon>
+        </div>
+
+        <div class="title">
+          Data Prezzo
+        </div>
+
+      </div>
+
+
+        <div class="range-chart">
+          <div id="range-chart" fxFlex="100%"></div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- LEGENDA -->
+    <div class="legend-card" fxLayout="column">
+
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap.gt-sm="0.5rem">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <div>
+            <mat-icon  class="icon d-none" color="accent">assignment</mat-icon>
+          </div>
+
+          <div class="title" style="margin-left: .6em;">
+            Lista Compagnie
+          </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="start center">
+
+          <mat-form-field color="accent" appearance="standard" style="width: 100%;">
+            <mat-label>Filtro</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Filtra compagnie" #input>
+          </mat-form-field>
+
+        </div>
+      </div>
+
+
+      <div fxLayout="row" fxLayoutAlign="start stretch" style="margin-top: 0.5em;">
+          <div style="height: 0px;" class="hideLegendPieChart" id="legend-chart"></div>
+          <div id="legenda-legend" fxFlex="100%" fxLayout="row" fxLayoutAlign="start center"></div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- PIE CHARTS -->
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+      <!-- COUNTRY CHART -->
+      <div fxFlex="50"  fxLayout="column">
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap.gt-sm="0.5rem">
+            <div >
+              <mat-icon  class="icon d-none" color="accent">public</mat-icon>
+            </div>
+
+            <div  class="title">
+              Paese
+            </div>
+
+          </div>
+      </div>
+
+      <!-- SECTOR CHART -->
+      <div fxFlex="50" fxLayout="column">
+
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap.gt-sm="0.5rem">
+
+          <div >
+            <mat-icon  class="icon d-none" color="accent">factory</mat-icon>
+          </div>
+
+          <div  class="title">
+            Settore
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+    <!-- COUNTRY CHART -->
+    <div fxFlex="50"  fxLayout="column">
+        <div fxFlex="100%" fxLayout="row" fxLayoutAlign="center center" id="chart-country"></div>
+        <div fxFlex="100%" fxLayout="row" fxLayoutAlign="center center" id="legend-country"></div>
+      </div>
+
+      <!-- SECTOR CHART -->
+      <div fxFlex="50" fxLayout="column">
+        <div fxFlex="100%" fxLayout="row" fxLayoutAlign="center center" id="chart-sector"></div>
+        <div fxFlex="100%" fxLayout="row" fxLayoutAlign="center center" id="legend-sector"></div>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <!-- LINE CHART -->
+    <div fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap.gt-sm="0.5rem">
+        <div>
+          <mat-icon  class="icon d-none" color="accent">query_stats</mat-icon>
+        </div>
+
+        <div class="title">
+          Performance
+        </div>
+
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          Elementi Macroeconomici
+          <mat-slide-toggle  #toggle color="accent" [checked]="cv.checked" (change)="redraw()"
+            matTooltip="Attiva / Disattiva Elementi Macroeconomici" matTooltipPosition="before">
+          </mat-slide-toggle>
+        </div>
+      </div>
+
+      <div class="lines-chart">
+          <div fxFlex="100%" id="chart-performance"></div>
+      </div>
+    </div>
+
+    <!-- TOOLTIPS -->
+    <div id="country-tooltip" class="new-tooltip" style="display: none;">
+      <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div class="square-color" style="width: 10px; height: 10px;"></div>
+        <p style="padding-left: 5px;">{{cv.pie_tooltip_text}} <strong>{{cv.pie_tooltip_value}}</strong></p>
+      </div>
+    </div>
+
+
+    <div id="sector-tooltip" class="new-tooltip" style="display: none;">
+      <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div class="square-color" style="width: 10px; height: 10px;"></div>
+        <p style="padding-left: 5px;">{{cv.pie_tooltip_text}} <strong>{{cv.pie_tooltip_value}}</strong></p>
+      </div>
+    </div>
+
+    <div id="performance-tooltip" class="new-line-tooltip" style="display: none;">
+      <div fxLayout="row"><strong>{{cv.data_tooltip_text}}</strong></div>
+      <div fxLayout="row" fxLayoutAlign="space-evenly center" style="padding-top: 10px;">
+        <div class="performance-square-color" style="width: 10px; height: 10px;"></div>
+        <p style="padding-left: 5px;">Rendimento: <strong>{{cv.performance_tooltip_text}}</strong></p>
+      </div>
+    </div>
+
+
+  </mat-card>
+</div>

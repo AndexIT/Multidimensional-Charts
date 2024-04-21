@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/custom_theme.scss";
+@import "../node_modules/flag-icons/css/flag-icons.min.css";
+
+html, body { height: 100%; }
+html{ background-color: #b6b6b6a9; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* ===== Scrollbar CSS ===== */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: grey;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+}
+
+.sidenav-scrollbar::-webkit-scrollbar-track{
+  margin-top: 4.58em;
+}
+
+.normal-scrollbar::-webkit-scrollbar-track{
+  margin-top: 0 !important;
+}
+
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+  }

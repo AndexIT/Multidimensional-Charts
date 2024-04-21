@@ -1,0 +1,150 @@
+.container {
+  margin-top: 5em;
+}
+
+#sidenav.menu-open{
+  width: 240px;
+}
+
+#sidenav.menu-close{
+  width: 60px;
+}
+mat-sidenav{
+  position: fixed
+}
+mat-toolbar {
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  position: -webkit-fixed; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  position: -webkit-fixed; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+img {
+  width: 10em;
+  cursor: pointer;
+}
+
+// mat-sidenav{
+//   width: 15%;
+// }
+
+mat-sidenav,
+mat-sidenav-list{
+  padding-top: 5.58em;
+}
+
+//set width sidenav
+// @media screen and (max-width:1280px) {
+//   mat-sidenav{
+//     width: 25%;
+//   }
+// }
+// @media screen and (max-width:768px) {
+//   mat-sidenav{
+//     width: 40%;
+//   }
+// }
+// @media screen and (max-width:375px) {
+//   mat-sidenav{
+//     width: 50%;
+//   }
+// }
+
+#sidenav.menu-open{
+  width: 240px;
+}
+
+#sidenav.menu-close{
+  width: 60px;
+}
+
+#sidenav.menu-close mat-icon{
+  margin-right: 20px;
+}
+
+::ng-deep .mat-drawer-inner-container{
+  overflow: hidden!important;
+}
+
+::ng-deep .mat-drawer-content{
+  overflow-x: hidden!important;
+}
+
+.link-item{
+  margin-left: 20px;
+}
+
+.link-item-history{
+  margin-left: 10px;
+  margin-right: 30px
+}
+
+.burger-menu{
+  margin-left:-0.5em;
+  margin-right: 0.5em
+}
+
+mat-chip {
+  max-width: 200px;
+}
+
+.one-line {
+  width: 100%;
+  display: inline-block; /* important */
+  white-space: nowrap;
+  overflow: hidden;
+
+  /* when not hovering show ellipsis */
+  &:not(:hover) {
+    text-overflow: ellipsis;
+  }
+
+  /* animate on either hover or focus */
+  &:hover,
+  &:focus {
+    span {
+      display: inline-block;
+      animation-name: scroll-text;
+      animation-duration: 7s;
+      animation-timing-function: linear ;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  /* define the animation */
+  @keyframes scroll-text {
+    0% {
+      transform: translateX(0%);
+    }
+    90% {
+      transform: translateX(-100%);
+    }
+    95% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+
+
+
+
+

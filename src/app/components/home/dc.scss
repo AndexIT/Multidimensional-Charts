@@ -1,0 +1,357 @@
+::ng-deep .dc-chart path.dc-symbol,
+::ng-deep .dc-legend g.dc-legend-item.fadeout {
+    fill-opacity: 0.5;
+    stroke-opacity: 0.5;
+}
+
+::ng-deep .dc-chart .pie-slice {
+    fill: none;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+::ng-deep .dc-chart .pie-slice.external {
+    fill: #000;
+}
+
+::ng-deep .dc-chart .pie-slice :hover,
+::ng-deep .dc-chart .pie-slice.highlight {
+    fill-opacity: .8;
+}
+
+::ng-deep .dc-chart .pie-path {
+    fill: none;
+    stroke-width: 2px;
+    stroke: #000;
+    opacity: 0.4;
+}
+
+::ng-deep .dc-chart .selected path,
+::ng-deep .dc-chart .selected circle {
+    stroke-width: 3;
+    stroke: #ccc;
+    fill-opacity: 1;
+}
+
+::ng-deep .dc-chart .deselected path,
+::ng-deep .dc-chart .deselected circle {
+    stroke: none;
+    fill-opacity: .5;
+    fill: #ccc;
+}
+
+::ng-deep .dc-chart .axis path,
+::ng-deep .dc-chart .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+::ng-deep .dc-chart .axis text {
+    font: 10px sans-serif;
+}
+
+::ng-deep .dc-chart .grid-line,
+::ng-deep .dc-chart .axis .grid-line,
+::ng-deep .dc-chart .grid-line line,
+::ng-deep .dc-chart .axis .grid-line line {
+    fill: none;
+    stroke: #ccc;
+    shape-rendering: crispEdges;
+}
+
+::ng-deep .dc-chart .brush rect.selection {
+    fill: #4682b4;
+    fill-opacity: .125;
+}
+
+::ng-deep .dc-chart .brush .custom-brush-handle {
+    fill: #eee;
+    stroke: #666;
+    cursor: ew-resize;
+}
+
+::ng-deep .dc-chart path.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+::ng-deep .dc-chart path.area {
+  fill-opacity: .3;
+  stroke: none;
+}
+
+::ng-deep .dc-chart path.highlight {
+  stroke-width: 3;
+  fill-opacity: 1;
+  stroke-opacity: 1;
+}
+
+::ng-deep .dc-chart g.state {
+    cursor: pointer;
+}
+
+::ng-deep .dc-chart g.state :hover {
+    fill-opacity: .8;
+}
+
+::ng-deep .dc-chart g.state path {
+    stroke: #fff;
+}
+
+::ng-deep .dc-chart g.deselected path {
+    fill: #808080;
+}
+
+::ng-deep .dc-chart g.deselected text {
+    display: none;
+}
+
+::ng-deep .dc-chart g.row rect {
+    fill-opacity: 0.8;
+    cursor: pointer;
+}
+
+::ng-deep .dc-chart g.row rect:hover {
+    fill-opacity: 0.6;
+}
+
+::ng-deep .dc-chart g.row text {
+    fill: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+::ng-deep .dc-chart g.dc-tooltip path {
+    fill: none;
+    stroke: #808080;
+    stroke-opacity: .8;
+}
+
+::ng-deep .dc-chart g.axis text {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+::ng-deep .dc-chart .highlight {
+    fill-opacity: 1;
+    stroke-opacity: 1;
+}
+
+::ng-deep .dc-chart .fadeout {
+    fill-opacity: 0.2;
+    stroke-opacity: 0.2;
+}
+
+::ng-deep .dc-chart .box text {
+    font: 10px sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+::ng-deep .dc-chart .empty-chart .pie-slice {
+    cursor: default;
+}
+
+::ng-deep .dc-chart .empty-chart .pie-slice path {
+    fill: #fee;
+    cursor: default;
+}
+
+::ng-deep .dc-legend {
+    font-size: 11px;
+}
+
+::ng-deep .dc-legend .dc-legend-item {
+    cursor: pointer;
+}
+
+::ng-deep .dc-legend g.dc-legend-item.selected {
+    fill: blue;
+}
+
+::ng-deep div.dc-html-legend {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: inherit;
+    float: right;
+    padding-right: 2px;
+}
+
+::ng-deep div.dc-html-legend .dc-legend-item-horizontal {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+::ng-deep div.dc-html-legend .dc-legend-item-horizontal.selected {
+    background-color: #3182bd;
+    color: white;
+}
+
+::ng-deep div.dc-html-legend .dc-legend-item-vertical {
+    display: block;
+    margin-top: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    cursor: pointer;
+}
+
+::ng-deep div.dc-html-legend .dc-legend-item-vertical.selected {
+    background-color: #3182bd;
+    color: white;
+}
+
+::ng-deep div.dc-html-legend .dc-legend-item-color {
+    display: table-cell;
+    width: 12px;
+    height: 12px;
+}
+
+::ng-deep div.dc-html-legend .dc-legend-item-label {
+    line-height: 12px;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 0.75em;
+}
+
+::ng-deep .dc-html-legend-container {
+    height: inherit;
+}
+
+//STYLE FOR NEW TOOLTIPS
+
+::ng-deep .new-tooltip{
+  border: 1px solid black;
+  font-size: 12px;
+  position: fixed;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.733);
+  margin: 0!important;
+  padding: 0.8em;
+}
+
+::ng-deep .svgRangeChart {
+  height: 150px;
+}
+
+::ng-deep .hideLegendPieChart {
+  display: none;
+}
+
+::ng-deep .rotateText {
+  text-anchor: end;
+  // transform: rotate(-60deg) translate(-10px,-7px);
+  transform: rotate(-50deg) translate(-9px, -3px);
+}
+
+::ng-deep .range-tooltip{
+  border: 1px solid black;
+  font-size: 12px;
+  display: none;
+  position: absolute;
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.733);
+  margin: 0!important;
+  padding: 0.8em;
+}
+
+::ng-deep .range-tooltip p{
+  margin: 0;
+}
+
+::ng-deep .new-line-tooltip{
+  border: 1px solid black;
+  font-size: 12px;
+  position: absolute;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.733);
+  margin: 0!important;
+  padding: 0.8em;
+}
+
+::ng-deep .new-tooltip p{
+  margin: 0!important;
+}
+
+::ng-deep .new-line-tooltip p{
+  margin: 0!important;
+}
+
+::ng-deep .focus circle {
+  fill: #f1f3f300;
+  stroke-width: 3px;
+}
+
+::ng-deep .focus-ctv circle {
+  fill: #f1f3f3b5;
+  stroke-width: 3px;
+}
+
+::ng-deep .focus-dialog circle {
+  fill: #f1f3f3b5;
+  stroke-width: 3px;
+}
+
+::ng-deep .focus-ctv-dialog circle {
+  fill: #f1f3f3b5;
+  stroke-width: 3px;
+}
+
+::ng-deep .focus circle:hover {
+  cursor: pointer;
+}
+
+::ng-deep .focus-ctv circle:hover {
+  cursor: pointer;
+}
+
+::ng-deep .focus-dialog circle:hover {
+  cursor: pointer;
+}
+
+::ng-deep .focus-ctv-dialog circle:hover {
+  cursor: pointer;
+}
+
+::ng-deep .hover-line {
+  stroke: #777;
+  stroke-width: 2px;
+  stroke-dasharray: 3, 3;
+}
+
+::ng-deep .dc-html-legend{
+  max-height: 10em;
+  overflow: auto;
+}
+
+::ng-deep .display-none{
+  display: none;
+}
+
+// ::ng-deep .tick {
+//     fill: #000 !important;
+//     stroke: #000 !important;
+//     display: block !important;
+//     visibility: visible !important;
+//     color: #000 !important;
+//     background-color: #3182bd !important;
+//     z-index: 2000 !important;
+
+// }
+
+

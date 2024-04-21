@@ -1,0 +1,82 @@
+@import "@angular/material/theming";
+// Be sure that you only ever include 'mat-core' mixin once!
+// it should not be included for each theme.
+@include mat-core();
+
+
+// define a real custom palette (using http://mcg.mbitson.com/)
+$white-theme: (
+  50 : #ffffff,
+  100 : #ffffff,
+  200 : #ffffff,
+  300 : #ffffff,
+  400 : #ffffff,
+  500 : #ffffff,
+  600 : #ffffff,
+  700 : #ffffff,
+  800 : #ffffff,
+  900 : #ffffff,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffffff,
+  A700 : #ffffff,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #000000,
+      500 : #000000,
+      600 : #000000,
+      700 : #000000,
+      800 : #000000,
+      900 : #000000,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
+
+$red-theme: (
+  50: #e8eaf6,
+  100: #c5cae9,
+  200: #9fa8da,
+  300: #7986cb,
+  400: #5c6bc0,
+  500: #3f51b5,
+  600: #3949ab,
+  700: #303f9f,
+  800: #283593,
+  900: #1a237e,
+  A100: #8c9eff,
+  A200: #536dfe,
+  A400: #3d5afe,
+  A700: #304ffe,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
+
+
+
+
+$theme-palette-primary: mat-palette($white-theme, 500);
+$theme-palette-accent: mat-palette($red-theme, 500);
+// include the custom theme components into a theme object
+$theme: mat-light-theme($theme-palette-primary, $theme-palette-accent);
+// include the custom theme object into the angular material theme
+@include angular-material-theme($theme);
