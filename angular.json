@@ -39,6 +39,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://andexit.github.io/Multidimensional-Charts/",
               "budgets": [
                 {
                   "type": "initial",
