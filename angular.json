@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Multi-Dimensional-Charts": {
+    "Multidimensional-Charts": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Multi-Dimensional-Charts",
+            "outputPath": "dist/Multidimensional-Charts",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Multi-Dimensional-Charts:build:production"
+              "browserTarget": "Multidimensional-Charts:build:production"
             },
             "development": {
-              "browserTarget": "Multi-Dimensional-Charts:build:development"
+              "browserTarget": "Multidimensional-Charts:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Multi-Dimensional-Charts:build"
+            "browserTarget": "Multidimensional-Charts:build"
           }
         },
         "test": {
@@ -110,7 +110,7 @@
       }
     }
   },
-  "defaultProject": "Multi-Dimensional-Charts",
+  "defaultProject": "Multidimensional-Charts",
   "cli": {
     "analytics": false
   }
